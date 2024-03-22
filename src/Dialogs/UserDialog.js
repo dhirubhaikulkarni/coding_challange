@@ -227,7 +227,7 @@ const UserDialog = forwardRef((props, ref) => {
                                 <DemoContainer components={['DatePicker']}>
                                     <DatePicker
                                         sx={{ width: '100%' }} // Make the DatePicker full width
-                                        label="Basic date picker"
+                                        label="Date of Birth"
                                         value={DOB}
                                         onChange={handleDateChange}
                                         renderInput={(props) => <TextField {...props} fullWidth />} // Ensuring the TextField inside DatePicker takes full width

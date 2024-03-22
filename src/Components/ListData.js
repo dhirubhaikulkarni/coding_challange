@@ -87,7 +87,18 @@ export default function StickyHeadTable() {
         }
     };
 
-    console.log(userData)
+    const handleDateString = (timestamp) => {
+        const date = new Date(timestamp);
+
+        // Extracting only the date part
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+
+        const formattedDate = `${day}-${month}-${year}`;
+        return formattedDate
+    };
+
 
 
     return (
@@ -119,7 +130,10 @@ export default function StickyHeadTable() {
                                     return (
                                         <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                                             {columns.map((column) => {
-                                                const value = row[column.id];
+                                                let value = row[column.id];
+                                                if (column.id == "DOB") {
+                                                    value = handleDateString(value)
+                                                }
                                                 return (
                                                     <>
                                                         <TableCell key={column.id} >
